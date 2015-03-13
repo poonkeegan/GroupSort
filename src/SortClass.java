@@ -119,6 +119,7 @@ public class SortClass {
 						for(int j = 0; j < group.length; j++){
 							int randStu = (int) (Math.random()*temp.size());
 							group[j] = temp.get(randStu);
+							//take the student out of the remaining list
 							temp.remove(randStu);
 						}
 						
@@ -135,8 +136,13 @@ public class SortClass {
 							
 							//add other group members to the list of partners
 							for(int k = 0; k < group.length; k++){
-								if(k != j)
+								if(k != j){
 								students[indx].addPartner(group[k]);
+								//take the student out of the remaining list
+								if(stuList.indexOf(group[k]) != -1)
+								stuList.remove(stuList.indexOf(group[k]));
+								}
+								
 							}
 						}
 						
