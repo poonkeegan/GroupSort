@@ -1,0 +1,60 @@
+Minumum group size:
+3
+Class size:
+28
+Group list:
+Inez
+Lennie
+Russell
+Shayne
+Noah
+Karma
+Joshua
+Willena
+Sebrina
+Taina
+Jaime
+Leann
+Ronda
+Kenneth
+Brendon
+Sarina
+Inocencia
+Marnie
+Cecelia
+Noelle
+Dorsey
+Armida
+Brice
+Vannessa
+Preston
+Ivan
+Josephine
+Ammie
+Previous Sets:
+2
+Set 1:
+Inez Lennie Russell
+Shayne Noah Karma
+Joshua Willena Sebrina
+Taina Jaime Leann
+Ronda Kenneth Brendon
+Sarina Inocencia Marnie
+Cecelia Noelle Dorsey
+Armida Brice Vannessa
+Preston Ivan Josephine Ammie
+Set 2:
+Shayne Willena Leann
+Joshua Jaime Brendon
+Taina Kenneth Marnie
+Ronda Inocencia Dorsey
+Sarina Noelle Vannessa
+Cecelia Brice Josephine
+Armida Ivan Russell
+Preston Lennie Karma
+Inez Noah Sebrina Ammie
+
+
+
+
+
