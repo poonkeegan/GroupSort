@@ -29,12 +29,18 @@ public class Student {
 	public void addPartner(String list){
 			workedWith.add(list);
 	}
+	
 	//if they haved worked with a (string) student before
 	public boolean haveWorked(String partner){
 		if(workedWith.indexOf(partner) == -1)
 			return false;
 		else
 			return true;
+	}
+	
+	public void resetPartner(){
+		workedWith.clear();
+		workedWith.add(name);
 	}
 	
 }
