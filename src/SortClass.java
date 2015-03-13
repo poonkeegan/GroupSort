@@ -24,7 +24,6 @@ public class SortClass {
 			
 			//how many groups are there (due to int the decimal is taken care of)
 			groups = classSize/groupSize;
-			
 			//student array made of names in list
 			scanner.nextLine();
 			//create list
@@ -39,39 +38,40 @@ public class SortClass {
 			prevGroups = Integer.parseInt(scanner.nextLine());
 			
 			//get already worked with partners
-			scanner.nextLine();
-			for(int i = 0; i < groups; i++){
-				
-				//split group into seperate names
-				String temp[] = scanner.nextLine().split(" ");
-				
-				//check each student in the group
-				for(int j = 0; j < temp.length; j++){
+			for(int l = 0; l < prevGroups; l++){
+				scanner.nextLine();
+				for(int i = 0; i < groups; i++){
 					
-					//find student in list of students
-					int index = 0;
-					for(int k = 0; k < groups; k++){
-						if(temp[j].equals(students[k].getName())){
-							index = k;
-							k = groups;
+					//split group into seperate names
+					String temp[] = scanner.nextLine().split(" ");
+					
+					//check each student in the group
+					for(int j = 0; j < temp.length; j++){
+						
+						//find student in list of students
+						int index = 0;
+						for(int k = 0; k < classSize; k++){
+							if(temp[j].equals(students[k].getName())){
+								index = k;
+								k = classSize;
+							}
 						}
-					}
-					
-					//add other group members to the list of partners
-					for(int k = 0; k < temp.length; k++){
-						if(k != j)
-						students[index].addPartner(temp[k]);
+						
+						//add other group members to the list of partners
+						for(int k = 0; k < temp.length; k++){
+							if(k != j)
+							students[index].addPartner(temp[k]);
+						}
 					}
 				}
 			}
 			
 			
+			for(int i = 0; i < students.length; i++){
+				print(students[i].alreadyWorked());
+			}
 			
-//			for(int i = 0; i < students.length; i++){
-//				print(students[i].alreadyWorked());
-//			}
-			
-			print(students[0].alreadyWorked());
+//			print(students[0].alreadyWorked());
 			
 			
 			//no Data list of students
