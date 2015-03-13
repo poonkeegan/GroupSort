@@ -119,6 +119,7 @@ public class SortClass {
 						for(int j = 0; j < group.length; j++){
 							int randStu = (int) (Math.random()*temp.size());
 							group[j] = temp.get(randStu);
+							temp.remove(randStu);
 						}
 						
 						//check each student in the group
