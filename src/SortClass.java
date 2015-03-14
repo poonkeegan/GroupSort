@@ -101,7 +101,7 @@ public class SortClass {
 					//find where current student is in array
 					int index = 0;
 					for(int j = 0; j < students.length; j++){
-						if(students[j].getName().equals(stuList.get(i))){
+						if(students[j].getName().equals(stuList.get(0))){
 							index=i;
 							j = students.length;
 						}
@@ -119,8 +119,7 @@ public class SortClass {
 						for(int j = 0; j < group.length; j++){
 							int randStu = (int) (Math.random()*temp.size());
 							group[j] = temp.get(randStu);
-							//take the student out of the remaining list
-							temp.remove(randStu);
+							temp.remove(temp.indexOf(group[j]));
 						}
 						
 						//check each student in the group
@@ -129,7 +128,7 @@ public class SortClass {
 							int indx = 0;
 							for(int k = 0; k < classSize; k++){
 								if(group[j].equals(students[k].getName())){
-									index = k;
+									indx = k;
 									k = classSize;
 								}
 							}
@@ -138,12 +137,10 @@ public class SortClass {
 							for(int k = 0; k < group.length; k++){
 								if(k != j){
 								students[indx].addPartner(group[k]);
-								//take the student out of the remaining list
-								if(stuList.indexOf(group[k]) != -1)
-								stuList.remove(stuList.indexOf(group[k]));
 								}
-								
 							}
+							//take the student out of the remaining list
+							stuList.remove(stuList.indexOf(group[j]));
 						}
 						
 						print(group);
@@ -151,7 +148,8 @@ public class SortClass {
 					}
 					//reset partners and re make this set continuing on
 					else{
-						print("Can only make " + l + " fully randomized sets");
+						int num = l+1;
+						print("Can only make " + num + " fully randomized sets");
 						
 						l--;
 						for(int j = 0; j < students.length; j++){
