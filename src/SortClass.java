@@ -13,7 +13,7 @@ public class SortClass {
 		int sets;
 		int largeGroup;
 		int groupSizing;
-		
+		String stuSet[][];
 		try {
 			Scanner scanner = new Scanner(new File("Data.txt"));
 			
@@ -80,6 +80,10 @@ public class SortClass {
 			//Start generating sets of random groups
 			print("How many sets?");
 			sets = Integer.parseInt(scanner.nextLine());
+			
+			//make array of sets of students
+			stuSet = new String[sets][groups];
+			
 			for(int l = 0; l < sets; l++){
 				
 				//create remaining list of students
@@ -142,14 +146,11 @@ public class SortClass {
 							//take the student out of the remaining list
 							stuList.remove(stuList.indexOf(group[j]));
 						}
-						
-						print(group);
-						
+						stuSet[l] = group;
 					}
 					//reset partners and re make this set continuing on
 					else{
-						int num = l+1;
-						print("Can only make " + num + " fully randomized sets");
+						print("Can only make " + l + " fully randomized sets");
 						
 						l--;
 						for(int j = 0; j < students.length; j++){
@@ -157,7 +158,12 @@ public class SortClass {
 						}
 					}
 				}
-				print("");
+			}
+			for(int i = 0; i < stuSet.length; i ++){
+				for(int j = 0; j < stuSet[i].length; j++){
+					System.out.print(stuSet[i][j]);
+				}
+				System.out.println();
 			}
 			scanner.close();
 			//no Data list of students
