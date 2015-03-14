@@ -13,7 +13,7 @@ public class SortClass {
 		int sets;
 		int largeGroup;
 		int groupSizing;
-		String stuSet[][];
+		String stuSet[][][];
 		try {
 			Scanner scanner = new Scanner(new File("Data.txt"));
 			
@@ -80,12 +80,12 @@ public class SortClass {
 			//Start generating sets of random groups
 			print("How many sets?");
 			sets = Integer.parseInt(scanner.nextLine());
-			
+			stuSet = new String [sets][groups][groupSize+1];
+			                           
 			//make array of sets of students
-			stuSet = new String[sets][groups];
-			
+			int randSets = 0;
 			for(int l = 0; l < sets; l++){
-				
+				randSets++;
 				//create remaining list of students
 				ArrayList<String> stuList = new ArrayList<String>();
 				for(Student s : students){
@@ -145,27 +145,35 @@ public class SortClass {
 							}
 							//take the student out of the remaining list
 							stuList.remove(stuList.indexOf(group[j]));
+							
 						}
-						stuSet[l] = group;
+						stuSet[l][i] = group;
 					}
 					//reset partners and re make this set continuing on
 					else{
-						print("Can only make " + l + " fully randomized sets");
-						
+						randSets--;
+						print("Can only make " + randSets + " fully randomized sets");
+						randSets = 0;
 						l--;
 						for(int j = 0; j < students.length; j++){
 							students[j].resetPartner();
 						}
 					}
 				}
-			}
-			for(int i = 0; i < stuSet.length; i ++){
-				for(int j = 0; j < stuSet[i].length; j++){
-					System.out.print(stuSet[i][j]);
+				
+				print("");
 				}
-				System.out.println();
-			}
 			scanner.close();
+			
+			
+			for(int i = 0; i < stuSet.length; i++){
+				for(int j = 0; j < stuSet[i].length; j++){
+					print(stuSet[i][j]);
+				}
+				print("");
+			}
+			
+			
 			//no Data list of students
 		} catch (FileNotFoundException e) {
 			System.out.println("No Data.txt file found please place in this folder and try again");
